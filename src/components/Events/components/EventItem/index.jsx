@@ -8,10 +8,12 @@ const EventItem = ({ id, info, name, image, onEventClick }) => {
     };
 
     return (
-        <div>
+        // ejemplo para la propagacion
+        <div onClick={() => console.log('padre clickeado')}>
             <img src={image} alt={name} width={200} height={200} />
             <h4>{name}</h4>
             <p>{info}</p>
+            {/* cuando se ejecuta este evento tambiente se va a ejetucar el evento del padre si no se llama a la funcion stopPropagation()*/}
             <button onClick={handleSeeMoreClick}>Ver mas</button>
         </div>
     );
