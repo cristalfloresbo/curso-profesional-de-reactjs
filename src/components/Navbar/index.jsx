@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import PropTypes from "prop-types";
 
-const Navbar = ({ onSearch }) => {
+const Navbar = forwardRef(({ onSearch }, ref) => {
     const [search, setSearch] = useState("");
 
     useEffect(() => {
@@ -27,7 +27,9 @@ const Navbar = ({ onSearch }) => {
     };
 
     return (
-        <div>
+        // const containerRef = useRef();
+        // <div ref={(el) => containerRef.current = el)}>
+        <div ref={ref}>
             <p>Events</p>
             <input
                 placeholder="Busca tu evento favorito"
@@ -37,7 +39,9 @@ const Navbar = ({ onSearch }) => {
             />
         </div>
     );
-};
+});
+
+Navbar.displayName = "Navbar";
 
 Navbar.propTypes = {
     onSearch: PropTypes.func.isRequired,
