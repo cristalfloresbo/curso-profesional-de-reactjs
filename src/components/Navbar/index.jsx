@@ -5,8 +5,16 @@ const Navbar = ({ onSearch }) => {
     const [search, setSearch] = useState("");
 
     useEffect(() => {
-        console.log(`1010 efect`);
-    }, [search, onSearch])
+        console.log(`onSearch cambio`);
+    }, [onSearch])
+
+    useEffect(() => {
+        console.log('Componente renderizado');
+    }, [])
+
+    useEffect(() => {
+        console.log(`search cambio`);
+    }, [search])
 
     const handleInputChange = (evt) => {
         setSearch(evt.target.value);
