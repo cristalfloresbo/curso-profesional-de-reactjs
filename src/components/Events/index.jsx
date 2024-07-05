@@ -40,7 +40,6 @@ const Events = ({ searchTerm }) => {
 
     return (
         <div>
-            <p>Events</p>
             {renderEvents()}
         </div>
     );
