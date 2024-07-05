@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import useEventsData from "../../hooks/userEventsData";
 import EventItem from "./components/EventItem";
-import eventsJSON from "../../data/events.json";
 
 const Events = ({ searchTerm }) => {
-    const [data] = useState(eventsJSON);
-    const {
-        _embedded: { events },
-    } = data;
+    const { events, isLoading, error } = useEventsData();
+
     const handleEventItemClick = (id) => {
         console.log(`Event ${id} clicked`);
     };
@@ -32,6 +29,14 @@ const Events = ({ searchTerm }) => {
             />
         ));
     };
+
+    if (error) {
+        return <p>Ha ocurrido un error</p>;
+    }
+
+    if (isLoading) {
+        return <p>Cargando resultados...</p>;
+    }
 
     return (
         <div>

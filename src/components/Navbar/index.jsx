@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const Navbar = ({ onSearch }) => {
     const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        console.log(`1010 efect`);
+    }, [search, onSearch])
+
     const handleInputChange = (evt) => {
         setSearch(evt.target.value);
     };
