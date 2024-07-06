@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-import useEventsData from "../../hooks/userEventsData";
 import EventItem from "./components/EventItem";
 import { useNavigate } from "react-router-dom";
 
-const Events = ({ searchTerm }) => {
-    const { events, isLoading, error } = useEventsData();
+const Events = ({ searchTerm, events }) => {
+    
     const navigate = useNavigate();
 
     const handleEventItemClick = (id) => {
@@ -33,14 +32,6 @@ const Events = ({ searchTerm }) => {
         ));
     };
 
-    if (error) {
-        return <p>Ha ocurrido un error</p>;
-    }
-
-    if (isLoading) {
-        return <p>Cargando resultados...</p>;
-    }
-
     return (
         <div>
             {renderEvents()}
@@ -50,6 +41,7 @@ const Events = ({ searchTerm }) => {
 
 Events.propTypes = {
     searchTerm: PropTypes.string.isRequired,
+    events: PropTypes.array.isRequired,
 };
 
 export default Events;
