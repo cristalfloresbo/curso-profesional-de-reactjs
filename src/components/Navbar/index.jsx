@@ -1,5 +1,6 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Navbar = forwardRef(({ onSearch }, ref) => {
     const [search, setSearch] = useState("");
@@ -42,10 +43,17 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
                 display: "flex",
             }}
         >
-            <div style={{ flex: 1, display: "flex"}}>
+            <div style={{ flex: 1, display: "flex" }}>
                 <p>Events</p>
             </div>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "flex-end"}}>
+            <div
+                style={{
+                    flex: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                }}
+            >
                 <input
                     placeholder="Busca tu evento favorito"
                     onChange={handleInputChange}
@@ -53,12 +61,22 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
                     value={search}
                     style={{
                         fontSize: 16,
-                        padding: '6px 12px',
+                        padding: "6px 12px",
                         borderRadius: 4,
-                        border: 'none',
+                        border: "none",
                         width: 200,
                     }}
                 />
+                <Link
+                    to="/profile/my-info"
+                    style={{
+                        marginLeft: 24,
+                        color: "#fff",
+                        textDecoration: "none",
+                    }}
+                >
+                    Mi perfil
+                </Link>
             </div>
         </div>
     );
