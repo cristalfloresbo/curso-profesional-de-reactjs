@@ -18,7 +18,7 @@ const MyInfo = () => {
         // return () => {
         //     localStorage.removeItem(USER_DATA);
         // };
-    }, []);
+    }, [setValue]);
 
     const handleFormSubmit = (data) => {
         try {

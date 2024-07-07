@@ -14,9 +14,12 @@ const Home = () => {
     const page = useMemo(() => data?.page || {}, [data?.page]);
     const [searchTerm, setSearchTerm] = useState("");
     const containerRef = useRef();
+    const fetchMyEventsRef = useRef();
+
+    fetchMyEventsRef.current = fetchEvents();
 
     useEffect(() => {
-        fetchEvents();
+        fetchMyEventsRef.current();
     }, []);
 
     const handleNavbarSearch = (term) => {
