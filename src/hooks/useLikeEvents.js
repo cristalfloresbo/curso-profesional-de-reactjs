@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-const LIKED_EVENTS_STORAGE_KEY = "liked-events";
+import { LIKED_EVENTS_STORAGE_KEY } from "../utils/constants";
 
 const checkIsEventLiked = (eventId) => {
     const likedEvents = JSON.parse(localStorage.getItem(LIKED_EVENTS_STORAGE_KEY)) || [];

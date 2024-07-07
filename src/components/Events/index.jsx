@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import EventItem from "./components/EventItem";
 import { useNavigate } from "react-router-dom";
+import { memo } from "react";
 
 const Events = ({ searchTerm, events }) => {
-    
     const navigate = useNavigate();
 
     const handleEventItemClick = (id) => {
-        console.log(`Event ${id} clicked`);
         navigate(`/detail/${id}`);
     };
+
+    console.log('render events');
 
     const renderEvents = () => {
         let eventsFiltered = events;
@@ -32,11 +33,7 @@ const Events = ({ searchTerm, events }) => {
         ));
     };
 
-    return (
-        <div>
-            {renderEvents()}
-        </div>
-    );
+    return <div>{renderEvents()}</div>;
 };
 
 Events.propTypes = {
@@ -44,4 +41,4 @@ Events.propTypes = {
     events: PropTypes.array.isRequired,
 };
 
-export default Events;
+export default memo(Events);

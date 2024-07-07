@@ -5,13 +5,21 @@ const Profile = () => {
     const { pathname } = useLocation();
     const navigate = useNavigate();
 
+    const handleInicioClick = () => {
+        navigate("/");
+    };
     const handleTabClick = (tab) => {
         navigate(`/profile/${tab}`);
     };
     return (
         <div>
-            <Link to="/" className={styles.homeLink}>Inicio</Link>
+            <Link to="/" className={styles.homeLink}>
+                Inicio
+            </Link>
             <div className={styles.tabsContainer}>
+                <span className={styles.tab} onClick={handleInicioClick}>
+                    Inicio
+                </span>
                 <span
                     className={`${
                         pathname.includes("my-info") ? styles.active : ""

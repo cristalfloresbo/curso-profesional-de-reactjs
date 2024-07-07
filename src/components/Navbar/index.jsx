@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 const Navbar = forwardRef(({ onSearch }, ref) => {
     const [search, setSearch] = useState("");
 
-    useEffect(() => {
-        console.log(`onSearch cambio`);
-    }, [onSearch]);
+    // useEffect(() => {
+    //     console.log(`onSearch cambio`);
+    // }, [onSearch]);
 
-    useEffect(() => {
-        console.log("Componente renderizado");
-    }, []);
+    // useEffect(() => {
+    //     console.log("Componente renderizado");
+    // }, []);
 
-    useEffect(() => {
-        console.log(`search cambio`);
-    }, [search]);
+    // useEffect(() => {
+    //     console.log(`search cambio`);
+    // }, [search]);
 
     useImperativeHandle(ref, () => ({
         search,
@@ -71,8 +71,9 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
                     to="/profile/my-info"
                     style={{
                         marginLeft: 24,
-                        color: "#fff",
+                        color: "#000",
                         textDecoration: "none",
+                        fontWeight: 600,
                     }}
                 >
                     Mi perfil
