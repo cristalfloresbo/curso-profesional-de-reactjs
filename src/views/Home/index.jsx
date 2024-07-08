@@ -16,7 +16,7 @@ const Home = () => {
     const containerRef = useRef();
     const fetchMyEventsRef = useRef();
 
-    fetchMyEventsRef.current = fetchEvents();
+    fetchMyEventsRef.current = fetchEvents;
 
     useEffect(() => {
         fetchMyEventsRef.current();
